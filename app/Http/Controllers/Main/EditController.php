@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 
 class  EditController extends Controller
 {
-    public function __invoke(Product $product)
+    public function __invoke(int $id)
     {
+        $product = Product::query()->find($id);
+
         return view('main.edit', compact('product'));
     }
 }

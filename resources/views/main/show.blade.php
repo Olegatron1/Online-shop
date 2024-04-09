@@ -29,6 +29,13 @@
         </div>
         <div class="mt-2">
                 <a href="{{ route('edit', $product->id) }}" class="btn btn-primary mr-3">Редактировать</a>
+            <form action="{{ route('delete', $product->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">
+                    <i class="btn btn-danger mr-3">Удалить</i>
+                </button>
+            </form>
         </div>
     </div>
 
