@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateRequest;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
-class  EditController extends Controller
+class DeleteController extends Controller
 {
     public function __invoke(int $id)
     {
         $product = Product::query()->find($id);
-
-        return view('main.edit', compact('product'));
+        $product->delete();
+        return redirect()->route('index');
     }
 }
